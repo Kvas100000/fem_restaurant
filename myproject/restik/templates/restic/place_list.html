@@ -1,0 +1,7 @@
+{% extends "base.html" %}
+{%block content%}
+  {% for place in place_list%}
+    <h1>Table # {{ place.table_number }}</h1>
+    <h2>Table seats: {{place.seats }}</h2>
+  {% endfor %}
+{%endblock%}

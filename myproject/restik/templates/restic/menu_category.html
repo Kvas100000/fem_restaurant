@@ -1,0 +1,6 @@
+{% extends "base.html" %}
+{%block content%}
+  {% for category in menu_category %}
+    <h1>Menu Category: {{ category.name }}</h1>
+  {% endfor %}
+{%endblock%}
