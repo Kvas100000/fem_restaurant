@@ -1,7 +1,17 @@
 {% extends "base.html" %}
-{%block content%}
-  {% for place in place_list%}
-    <h1>Table # {{ place.table_number }}</h1>
-    <h2>Table seats: {{place.seats }}</h2>
-  {% endfor %}
-{%endblock%}
+{% load static %}
+
+{% block head %}
+<link rel="stylesheet" href="{% static 'css/place_list.css' %}">
+{% endblock %}
+
+{% block content %}
+  <div class="container">
+    {% for place in place_list %}
+      <div class="place-card">
+        <h1>Table #{{ place.table_number }}</h1>
+        <h2>Seats: {{ place.seats }}</h2>
+      </div>
+    {% endfor %}
+  </div>
+{% endblock %}
