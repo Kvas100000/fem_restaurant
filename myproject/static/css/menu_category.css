@@ -1,0 +1,19 @@
+body {
+    background-color: #fffdf8;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+.menu-category {
+    background-color: #fff;
+    border-left: 6px solid #ffc107;
+    padding: 16px 20px;
+    margin-bottom: 20px;
+    border-radius: 6px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.04);
+}
+
+.menu-category h1 {
+    font-size: 1.5rem;
+    color: #343a40;
+    margin: 0;
+}

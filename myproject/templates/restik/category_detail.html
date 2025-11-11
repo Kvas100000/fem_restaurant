@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block head %}
+<link rel="stylesheet" href="{% static 'css/category_detail.css' %}">
+{% endblock %}
+
+{% block content %}
+  <div class="container">
+    <a href="menu_category_list"></a>
+    
+    <h1 class="category-title">{{ category.name }}</h1>
+
+    <div class="menu-items">
+      {% for item in menu_items %}
+        <div class="menu-item-card">
+          <h2>{{ item.name }}</h2>
+          <p class="description">{{ item.description }}</p>
+          <p class="price">**Цена:** {{ item.price }}</p>
+        </div>
+        {% if not forloop.last %}<hr>{% endif %}
+      {% empty %}
+        <p>К сожалению, в этой категории пока нет блюд.</p>
+      {% endfor %}
+    </div>
+  </div>
+{% endblock %}

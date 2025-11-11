@@ -1,0 +1,30 @@
+body {
+    background-color: #f0f2f5;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+.place-card {
+    background-color: #ffffff;
+    border: 1px solid #ced4da;
+    border-radius: 8px;
+    padding: 16px;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    transition: box-shadow 0.2s ease;
+}
+
+.place-card:hover {
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.place-card h1 {
+    font-size: 1.4rem;
+    color: #495057;
+    margin-bottom: 8px;
+}
+
+.place-card h2 {
+    font-size: 1.1rem;
+    color: #6c757d;
+}
+

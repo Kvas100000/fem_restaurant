@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="container mt-5">
+  <h1 class="mb-4">Забронировать столик</h1>
+
+  {% if error %}
+    <div class="alert alert-danger">{{ error }}</div>
+  {% endif %}
+
+  <form method="post">
+    {% csrf_token %}
+
+    <div class="mb-3">
+      <label for="place-id" class="form-label">Выберите столик</label>
+      <select name="place-id" id="place-id" class="form-select" required>
+        {% for p in available_places %}
+      <option value="{{ p.id }}">Столик №{{ p.table_number }} ({{ p.seats }} мест)</option>
+        {% endfor %}
+      </select>
+
+      <label for="menu-name" class="form-label">Выберите блюда</label>
+      <select name="menu-name" id="menu-name" class="form-select" multiple required>
+        {% for item in menu_items %}
+          <option value="{{ item.id }}">{{ item.name }} — {{ item.price }}₴</option>
+        {% endfor %}
+      </select>
+      <small class="form-text text-muted">Зажмите Ctrl (или Cmd на Mac), чтобы выбрать несколько</small>
+    </div>
+
+    <div class="mb-3">
+      <label for="start-time" class="form-label">Время начала</label>
+      <input type="datetime-local" name="start-time" id="start-time" class="form-control" required>
+    </div>
+
+    <div class="mb-3">
+      <label for="end-time" class="form-label">Время окончания</label>
+      <input type="datetime-local" name="end-time" id="end-time" class="form-control" required>
+    </div>
+
+    <button type="submit" class="btn btn-danger">Забронировать</button>
+  </form>
+</div>
+{% endblock %}

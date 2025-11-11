@@ -1,9 +1,0 @@
-{% extends "base.html" %}
-{% block content %}
-    {{render_string}}
-    {% if request.user.is_authenticated%}
-        <h1>Hello user</h1>
-    {%else%}
-        <h1>Pshol von</h1>
-    {% endif %}
-{% endblock %}

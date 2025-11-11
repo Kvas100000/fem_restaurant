@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block head %}
+<link rel="stylesheet" href="{% static 'css/menu_category.css' %}">
+{% endblock %}
+
+{% block content %}
+  <div class="container">
+    {% for category in menu_category %}
+      <a href="{% url 'category_detail' category.id %}" class="category-link">
+        <div class="menu-category">
+          <h1>{{ category.name }}</h1>
+        </div>
+      </a>
+    {% endfor %}
+  </div>
+{% endblock %}
