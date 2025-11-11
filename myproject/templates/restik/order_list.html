@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="container mt-5">
+  <h1 class="mb-4">Мои заказы</h1>
+
+  {% if bookings %}
+    <ul class="list-group">
+      {% for b in bookings %}
+        <li class="list-group-item d-flex justify-content-between align-items-center">
+          <div>
+            <a href="{% url 'order_detail' reservation_id=b.id %}" class="text-decoration-none">
+              Столик {{ b.place }} — {{ b.start_time|date:"d.m.Y H:i" }}
+            </a>
+            <div class="text-muted small">
+              Окончание: {{ b.end_time|date:"d.m.Y H:i" }}
+            </div>
+          </div>
+          <span class="badge bg-primary rounded-pill">{{ b.ordered_items.count }} блюд</span>
+        </li>
+      {% endfor %}
+    </ul>
+  {% else %}
+    <div class="alert alert-info">
+      У вас нет активных заказов.
+    </div>
+  {% endif %}
+
+  <div class="mt-4">
+    <a href="{% url 'book_table' %}" class="btn btn-danger">Забронировать столик</a>
+  </div>
+</div>
+{% endblock %}
